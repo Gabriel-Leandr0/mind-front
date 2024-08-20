@@ -1,0 +1,75 @@
+<form class="c-app-form" [formGroup]="form" (submit)="pesquisar()">
+  <div class="form-grid">
+    <div class="form-grid-item">
+      <label class="c-app-form_label" for="Email">
+        <span class="c-app-form_descricao">Email</span>
+        <mat-form-field class="c-app-form_field">
+          <input type="text" matInput name="Email" formControlName="Email" />
+          <mat-error>Obrigatório</mat-error>
+        </mat-form-field>
+      </label>
+    </div>
+
+    <div class="form-grid-item">
+      <app-select-ativo formControlName="Ativo" usuarioKey="ativo"></app-select-ativo>
+    </div>
+
+    <div class="form-grid-item">
+      <app-select-profileId formControlName="PerfilId" usuarioKey="PerfilId"></app-select-profileId>
+    </div>
+  </div>
+
+  <button type="submit" mat-raised-button class="btn-padrao1 u-margin-bottom-1_25rem" [disabled]="form.invalid">
+    Pesquisar Usuário
+  </button>
+
+  <div class="add">
+    <button type="submit" mat-raised-button class="btn-padrao2 u-margin-bottom-1_25rem" [disabled]="form.invalid"
+      (click)="criarUsuario()">
+      Criar novo Usuário
+    </button>
+  </div>
+
+  <div class="c-app-tabela">
+    <table mat-table class="u-margin-bottom-1_25rem" [dataSource]="pagUsuarios.registros">
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef>
+          <div>Ações</div>
+        </th>
+        <td mat-cell *matCellDef="let usuario">
+          <img src="/assets/img/icons/editar.svg" class="ico" (click)="editarUsuario(usuario)">
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef>
+          <div>Email</div>
+        </th>
+        <td mat-cell *matCellDef="let usuario">
+          {{ usuario.Email }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Perfil">
+        <th mat-header-cell *matHeaderCellDef>
+          <div>Perfil</div>
+        </th>
+        <td mat-cell *matCellDef="let usuario">
+          {{ usuario.Perfil.Nome }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Ativo">
+        <th mat-header-cell *matHeaderCellDef>
+          <div>Ativo</div>
+        </th>
+        <td mat-cell *matCellDef="let usuario">
+          {{ usuario.Ativo ? 'Ativo' : 'Inativo' }}
+        </td>
+      </ng-container>
+      <tr class="c-app-tabela_cabecalho" mat-header-row *matHeaderRowDef="colunasVisiveis; sticky: true"></tr>
+      <tr class="u-font-size-1rem" mat-row *matRowDef="let row; columns: colunasVisiveis"></tr>
+    </table>
+  </div>
+</form>
+
+<mat-paginator [length]="pagUsuarios.Total" [pageSize]="pagUsuarios.TamanhoPagina" [pageIndex]="pagUsuarios.Pagina"
+  [pageSizeOptions]="[1,5,20, 50, 100,]" (page)="paginar($event)" showFirstLastButtons>
+</mat-paginator>

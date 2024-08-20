@@ -1,0 +1,10 @@
+<mat-expansion-panel #turnoExpansionPanel class="c-collapse-menu-lateral_container">
+  <mat-expansion-panel-header matRipple class="c-collapse-menu-lateral_cabecalho"
+    [ngClass]="{ 'is-aberto': expansionPanel?.expandedChange | async }">
+    <mat-panel-title class="c-collapse-menu-lateral_titulo">Gestão de Acesso</mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="c-collapse-menu-lateral_conteudo">
+    <a matRipple class="c-collapse-menu-lateral_link" [routerLink]="['/gestaoAcesso/usuarios']"
+      routerLinkActive="is-ativo" (isActiveChange)="rolarParaInicio()">Gestão de Usuário</a>
+  </div>
+</mat-expansion-panel>

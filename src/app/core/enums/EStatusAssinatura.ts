@@ -1,0 +1,4 @@
+export enum EStatusAssinatura {
+  PENDENTE_ASSINATURA = 'PENDENTE ASSINATURA',
+  ASSINADO = 'ASSINADO'
+}

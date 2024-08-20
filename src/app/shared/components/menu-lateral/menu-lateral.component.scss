@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  flex-grow: 1;
+}
+.c-menu-lateral {
+  flex-grow: 1;
+  &_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+  }
+  &_drawer {
+    position: fixed;
+    background: #ec5225;
+    width: 16rem;
+  }
+  &_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 2rem 0;
+  }
+  &_logo {
+    height: 3.5rem;
+  }
+  &_animacao {
+    height: calc(100% - 3.5rem);
+  }
+  &_options {
+    height: calc(100% - 20rem);
+    overflow: auto;
+  }
+  &_content {
+    display: flex;
+  }
+}

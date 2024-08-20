@@ -1,0 +1,43 @@
+<form class="c-app-form" [formGroup]="form" (submit)="submit()">
+  <div>
+    <div class="header">
+      <h1>{{title}}</h1>
+      <button type="button" matSuffix mat-icon-button (click)="close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <div class="c-app-form_container form-grid">
+      <div class="form-grid-item">
+        <label class="c-app-form_label" for="Email">
+          <span class="c-app-form_descricao">Email</span>
+          <mat-form-field class="c-app-form_field">
+            <input type="text" matInput name="Email" formControlName="Email" />
+            <mat-error>{{ ErroEmail() }}</mat-error>
+          </mat-form-field>
+        </label>
+      </div>
+
+      <div class="form-grid-item" *ngIf="this.data == 'criar'">
+        <label class="c-app-form_label" for="Senha">
+          <span class="c-app-form_descricao">Senha</span>
+          <mat-form-field class="c-app-form_field">
+            <input type="text" matInput name="Senha" formControlName="Senha" />
+            <mat-error>Obrigatório</mat-error>
+          </mat-form-field>
+        </label>
+      </div>
+
+
+      <div class="form-grid-item">
+        <app-select-profileId formControlName="PerfilId" [invalido]="form.controls['PerfilId']['invalid']">
+          <mat-error>Obrigatório</mat-error>
+        </app-select-profileId>
+      </div>
+
+    </div>
+  </div>
+  <button type="submit" mat-raised-button color="primary" class="u-margin-bottom-1_25rem" [disabled]="form.invalid">
+    {{title}}
+  </button>
+</form>

@@ -1,0 +1,22 @@
+@use '@angular/material' as mat;
+@import 'variables';
+
+@include mat.core();
+
+$techscan-primary: mat.define-palette($bmac-palette, 500);
+$techscan-accent: mat.define-palette($bmac-palette, A200, A100, A400);
+$techscan-warn: mat.define-palette(mat.$red-palette);
+
+$techscan-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $techscan-primary,
+      accent: $techscan-accent,
+      warn: $techscan-warn
+    ),
+    typography: mat.define-typography-config(),
+    density: 0
+  )
+);
+
+@include mat.all-component-themes($techscan-theme);

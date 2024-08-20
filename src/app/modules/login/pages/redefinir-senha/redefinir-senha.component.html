@@ -1,0 +1,25 @@
+<app-titulo
+  title="Esqueceu sua senha?"
+  subtitle="Digite seu e-mail para recuperar a senha."></app-titulo>
+
+<form [formGroup]="form">
+  <app-input-container
+    name="email"
+    [control]="form.get('email')!"
+    label="E-mail"
+    type="email"
+    placeholder="Digite seu e-mail"
+    [isRequired]="true">
+  </app-input-container>
+
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="form.invalid"
+    (click)="enviarEmail()"
+    type="submit"
+    class="button-login">
+    Enviar
+  </button>
+  <a class="link-voltar" [routerLink]="['/login']">Voltar</a>
+</form>

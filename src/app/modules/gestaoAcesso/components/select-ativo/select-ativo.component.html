@@ -1,0 +1,19 @@
+<label class="c-app-form_label" for="ativo">
+  <span class="c-app-form_descricao">Ativo</span>
+  <mat-form-field class="c-app-form_field">
+    <input type="text" matInput name="ativo" [required]="invalido" [formControl]="control" [matAutocomplete]="autoAtivo"
+      placeholder="Selecione" (input)="filtrarAtivo($event)" (focus)="filtrarAtivo(); tocar()" (blur)="tocar()" />
+    <button type="button" matSuffix mat-icon-button (click)="limpar()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-autocomplete requireSelection #autoAtivo [displayWith]="exibirDadosAtivo()">
+      <mat-option>Selecione</mat-option>
+      @for (ativo of ativosFiltrados; track ativo) {
+      <mat-option [value]="ativo.Id">
+        {{ ativo.Nome }}
+      </mat-option>
+      }
+    </mat-autocomplete>
+    <ng-content ngProjectAs="mat-error" select="mat-error, [matError]"></ng-content>
+  </mat-form-field>
+</label>

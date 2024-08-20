@@ -1,0 +1,147 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/cdk/overlay-prebuilt.css';
+@import 'ngx-toastr/toastr';
+@import 'mixins';
+
+:root {
+  --color-01: #f7ac44;
+  --color-02: #ececeb;
+  --color-03: #ffe0b2;
+  --color-04: #ffcc80;
+  --color-05: #363734;
+  --color-06: #8a8e91;
+  --color-07: #bebebe;
+  --color-08: #3a3d4f;
+  --color-09: #fb8c00;
+  --color-10: #ffd180;
+  --color-11: #3a3b450d;
+  --color-12: #24252f;
+  --color-13: #25424e;
+  --color-14: #ffffff;
+  font-size: 16px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.btn-padrao1 {
+  background-color: #ec5225 !important;
+  color: white !important;
+}
+
+.btn-padrao2 {
+  background-color: #25424e !important;
+  color: white !important;
+}
+
+.c-app-form {
+  display: flex;
+  flex-direction: column;
+  // flex-grow: 1;
+  height: 100%;
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    // flex-grow: 1;
+  }
+
+  &_label {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  &_descricao {
+    font-size: 1rem;
+    min-width: 16rem;
+    width: 50%;
+    margin-bottom: 1rem;
+
+    @include mq(lg) {
+      width: 100%;
+    }
+  }
+
+  &_field {
+    min-width: 16rem;
+    width: 50%;
+
+    @include mq(lg) {
+      width: 100%;
+    }
+  }
+}
+
+.c-app-tabela {
+  &_cabecalho {
+    font-size: 1rem !important;
+    color: var(--color-03) !important;
+    background: var(--color-13) !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-06);
+  border-radius: 0.4rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-07);
+}
+
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+  -webkit-overflow-scrolling: unset !important;
+}
+
+.u-font-size-1rem {
+  font-size: 1rem !important;
+}
+
+.u-font-weight-600 {
+  font-weight: 600 !important;
+}
+
+.u-font-weight-700 {
+  font-weight: 700 !important;
+}
+
+.u-margin-bottom-1_25rem {
+  margin-bottom: 1.25rem !important;
+}
+
+.u-margin-right-0_75rem {
+  margin-right: 0.75rem !important;
+}
+
+.u-resize-none {
+  resize: none !important;
+}
+
+.u-width-100p {
+  width: 100% !important;
+}
+
+.u-padding-1rem {
+  padding: 1rem !important;
+}
+
+.is-titulo {
+  margin-bottom: 1.25rem !important;
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
+}

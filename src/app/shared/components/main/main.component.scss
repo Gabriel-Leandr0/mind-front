@@ -1,0 +1,47 @@
+@import 'mixins';
+
+:host {
+  display: flex;
+  min-height: 100%;
+}
+
+.c-app {
+  &_conteudo {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    background: var(--color-14);
+    padding: calc(var(--mat-toolbar-standard-height) + 2rem) 3rem 2rem 3rem;
+    gap: 2rem;
+
+    @include mq(xl) {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  &_titulo {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  &_container {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    background: var(--color-14);
+    padding: 0.75rem;
+  }
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  width: 70%;
+  height: auto;
+}

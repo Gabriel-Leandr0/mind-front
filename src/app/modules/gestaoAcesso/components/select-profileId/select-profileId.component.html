@@ -1,0 +1,20 @@
+<label class="c-app-form_label" for="profile">
+  <span class="c-app-form_descricao">Perfil</span>
+  <mat-form-field class="c-app-form_field">
+    <input type="text" matInput name="profile" [required]="invalido" [formControl]="control"
+      [matAutocomplete]="autoProfile" placeholder="Selecione" (input)="filtrarProfile($event)"
+      (focus)="filtrarProfile(); tocar()" (blur)="tocar()" />
+    <button type="button" matSuffix mat-icon-button (click)="limpar()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-autocomplete requireSelection #autoProfile [displayWith]="exibirDadosProfile()">
+      <mat-option>Selecione</mat-option>
+      @for (profile of profilesFiltrados; track profile) {
+      <mat-option [value]="profile.Id">
+        {{ profile.Nome }}
+      </mat-option>
+      }
+    </mat-autocomplete>
+    <ng-content ngProjectAs="mat-error" select="mat-error, [matError]"></ng-content>
+  </mat-form-field>
+</label>

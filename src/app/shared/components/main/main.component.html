@@ -1,0 +1,12 @@
+<app-cabecalho></app-cabecalho>
+<app-menu-lateral>
+  <main class="c-app_conteudo">
+    <h1 class="c-app_titulo">{{ tituloPagina.titulo() }}</h1>
+    <div class="c-app_container">
+      <div class="logo-container" *ngIf="isHomeRoute">
+        <img src="/assets/logo.png" class="logo">
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</app-menu-lateral>

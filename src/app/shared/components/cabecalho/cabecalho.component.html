@@ -1,0 +1,20 @@
+<mat-toolbar class="c-cabecalho" [ngClass]="{ 'is-menu-aberto': menuAberto }">
+  <button mat-icon-button (click)="this.menuLateralService.drawer?.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="c-cabecalho_opcoes">
+    <span class="c-cabecalho_texto">
+      Olá, <span class="u-font-weight-700">{{ usuario?.nomNome }}</span>
+    </span>
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,21 @@
+<div>
+  <app-titulo title="Acesso ao Cliente" subtitle="Insira os dados de acesso no formulário abaixo">
+  </app-titulo>
+  <form [formGroup]="form">
+    <app-input-container name="email" [control]="form.get('email')!" label="Email" type="email"
+      placeholder="Digite seu email" [isRequired]="true">
+    </app-input-container>
+    <app-input-container name="password" [control]="form.get('senha')!" label="Senha:" type="password"
+      placeholder="Digite sua senha" [isRequired]="true">
+    </app-input-container>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSubmit()" type="submit"
+      class="button-login">
+      Entrar
+    </button>
+  </form>
+  <div class="remember-forgot" style="text-align: end">
+    <a [routerLink]="['solicitarRedefinicaoSenha']" class="forgot-password-link" href="#">Esqueceu a senha?</a>
+  </div>
+</div>
+
+<style></style>

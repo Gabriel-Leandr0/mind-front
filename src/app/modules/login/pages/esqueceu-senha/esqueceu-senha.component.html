@@ -1,0 +1,33 @@
+<app-titulo
+  title="Redefinir senha"
+  subtitle="Digite e confirme sua senha"></app-titulo>
+
+<form [formGroup]="form" *ngIf="form">
+  <app-input-container
+    name="senha"
+    [control]="form.get('senha')!"
+    label="Digite sua nova senha"
+    type="password"
+    placeholder="Digite sua nova senha"
+    [isRequired]="true">
+  </app-input-container>
+
+  <app-input-container
+    name="confirmarSenha"
+    [control]="form.get('confirmarSenha')!"
+    label="Confirme sua senha"
+    type="password"
+    placeholder="Confirme sua senha"
+    [isRequired]="true">
+  </app-input-container>
+
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="form.invalid"
+    (click)="mudarSenha()"
+    type="submit"
+    class="button-login">
+    Mudar senha
+  </button>
+</form>
